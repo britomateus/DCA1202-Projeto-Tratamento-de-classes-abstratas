@@ -1,0 +1,11 @@
+dim 80 80
+brush x
+line 5 5 15 15
+brush *
+rectangle 5 17 10 10 1
+brush -
+rectangle 5 30 10 10 0
+brush .
+circle 10 48 6 1
+brush @
+circle 10 64 6 0

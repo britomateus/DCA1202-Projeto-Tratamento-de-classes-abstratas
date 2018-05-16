@@ -1,0 +1,99 @@
+\hypertarget{main_8cpp}{}\section{Referência do Arquivo Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/main.cpp}
+\label{main_8cpp}\index{Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/main.\+cpp@{Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/main.\+cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}screen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}reta.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}retangulo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}circulo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}figurageometrica.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}brush.\+h\char`\"{}}\newline
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+16            \{
+17 
+18 
+19     ifstream in;
+20     ofstream out;
+21     \textcolor{keywordtype}{string} code;
+22     \mbox{\hyperlink{class_screen}{Screen}} scr;
+23     \textcolor{keywordtype}{char} br;
+24     \textcolor{keywordtype}{int} x,x0,y,y0,largura,altura,raio;
+25     \textcolor{keywordtype}{bool} mode;
+26 
+27     vector <FiguraGeometrica*> figuras;
+28     vector <FiguraGeometrica*>::iterator it;
+29 
+30     in.open(\textcolor{stringliteral}{"C:/Users/mateu/Documents/Projeto2\_TratamentodeClassesAbstratas/teste.txt"});
+31 
+32     \textcolor{keywordflow}{if}(in.is\_open())\{
+33             cout << \textcolor{stringliteral}{"Arquivo aberto!\(\backslash\)n"};
+34         \}
+35         \textcolor{keywordflow}{else}\{
+36             cout << \textcolor{stringliteral}{"Erro na abertura do arquivo\(\backslash\)n"};
+37         \}
+38 
+39         \textcolor{keywordflow}{while}(in.good())\{
+40 
+41             getline(in, code);
+42             stringstream interpr(code);
+43             interpr >> code;
+44 
+45             \textcolor{keywordflow}{if}(code == \textcolor{stringliteral}{"dim"})\{
+46                 interpr >> largura >> altura;
+47                 scr = \mbox{\hyperlink{class_screen}{Screen}}(largura,altura);
+48             \}
+49             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(code == \textcolor{stringliteral}{"brush"})\{
+50                 interpr >> br;
+51                 \textcolor{keywordflow}{if}(interpr.good())
+52                     figuras.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_brush}{Brush}}(br));
+53                 \textcolor{keywordflow}{else}
+54                     figuras.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_brush}{Brush}}(\textcolor{charliteral}{' '}));
+55             \}
+56             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(code == \textcolor{stringliteral}{"line"})\{
+57                 interpr >> x0 >> y0 >> x >> y;
+58                 figuras.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_reta}{Reta}}(x0,y0,x,y));
+59             \}
+60             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(code == \textcolor{stringliteral}{"rectangle"})\{
+61                 interpr >> x >> y >> largura >> altura >> mode;
+62                 figuras.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_retangulo}{Retangulo}}(x,y,largura,altura,mode));
+63             \}
+64             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(code == \textcolor{stringliteral}{"circle"})\{
+65                 interpr >> x0 >> y0 >> raio >> mode;
+66                 figuras.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_circulo}{Circulo}}(x0,y0,raio,mode));
+67             \}
+68         \}
+69 
+70         \textcolor{keywordflow}{for}(it=figuras.begin(); it!=figuras.end(); it++)\{
+71             (*it)->draw(scr);
+72         \}
+73         cout << scr;
+74         in.close();
+75 
+76 
+77         out.open(\textcolor{stringliteral}{"C:/Users/mateu/Documents/Projeto2\_TratamentodeClassesAbstratas/out.txt"});
+78 
+79 
+80         out << scr;
+81         out.close();
+82 
+83     \textcolor{keywordflow}{return} 0;
+84 \}
+\end{DoxyCode}

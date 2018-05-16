@@ -1,0 +1,38 @@
+\hypertarget{screen_8cpp}{}\section{Referência do Arquivo Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/screen.cpp}
+\label{screen_8cpp}\index{Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/screen.\+cpp@{Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/screen.\+cpp}}
+{\ttfamily \#include \char`\"{}screen.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{screen_8cpp_aab6a2880746bfe1b7964817cc8f0989e}{operator$<$$<$}} (ostream \&os, \mbox{\hyperlink{class_screen}{Screen}} \&t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{screen_8cpp_aab6a2880746bfe1b7964817cc8f0989e}\label{screen_8cpp_aab6a2880746bfe1b7964817cc8f0989e}} 
+\index{screen.\+cpp@{screen.\+cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!screen.\+cpp@{screen.\+cpp}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{\mbox{\hyperlink{class_screen}{Screen}} \&}]{t }\end{DoxyParamCaption})}
+
+Função amiga da classe \mbox{\hyperlink{class_screen}{Screen}}, permite que a tela de desenho seja exibida no terminal ou em um arquivo de texto. 
+\begin{DoxyParams}{Parâmetros}
+{\em os} & é o fluxo de entrada \\
+\hline
+{\em t} & é o parâmetro que recebe a tela \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+39 \{
+40     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<t.nlin; i++)\{
+41         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<t.ncol; j++)\{
+42             os << t.mat[i][j];
+43         \}
+44         os <<endl;
+45     \}
+46     \textcolor{keywordflow}{return}(os);
+47 \}
+\end{DoxyCode}

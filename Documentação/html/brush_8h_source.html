@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tratamento de Classes Abstratas: Código-Fonte de Projeto2_TratamentodeClassesAbstratas/brush.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Tratamento de Classes Abstratas
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_8476e67629af30af47d0ac293273f8aa.html">Projeto2_TratamentodeClassesAbstratas</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">brush.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="brush_8h.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BRUSH_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define BRUSH_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="figurageometrica_8h.html">figurageometrica.h</a>&quot;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="screen_8h.html">screen.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_brush.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_brush.html">Brush</a> : <span class="keyword">public</span> <a class="code" href="class_figura_geometrica.html">FiguraGeometrica</a>{</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">char</span> br;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_brush.html#a5ded381f29fa4566fbce96f623baecab">Brush</a>(<span class="keywordtype">char</span> _br = <span class="charliteral">&#39; &#39;</span>);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_brush.html#ad12c371aba8d8770df593ef94ae14dd0">draw</a>(<a class="code" href="class_screen.html">Screen</a> &amp;t);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif // BRUSH_H</span></div><div class="ttc" id="class_screen_html"><div class="ttname"><a href="class_screen.html">Screen</a></div><div class="ttdoc">A classe Screen é utilizada para representar a tela de desenho. </div><div class="ttdef"><b>Definition:</b> screen.h:11</div></div>
+<div class="ttc" id="class_figura_geometrica_html"><div class="ttname"><a href="class_figura_geometrica.html">FiguraGeometrica</a></div><div class="ttdoc">A classe FiguraGeometrica é utilizada para representar as figuras que serão desenhadas. </div><div class="ttdef"><b>Definition:</b> figurageometrica.h:9</div></div>
+<div class="ttc" id="class_brush_html_ad12c371aba8d8770df593ef94ae14dd0"><div class="ttname"><a href="class_brush.html#ad12c371aba8d8770df593ef94ae14dd0">Brush::draw</a></div><div class="ttdeci">void draw(Screen &amp;t)</div><div class="ttdoc">Método para desenhar figuras com o brush escolhido pelo usuário. </div><div class="ttdef"><b>Definition:</b> brush.cpp:11</div></div>
+<div class="ttc" id="screen_8h_html"><div class="ttname"><a href="screen_8h.html">screen.h</a></div></div>
+<div class="ttc" id="class_brush_html_a5ded381f29fa4566fbce96f623baecab"><div class="ttname"><a href="class_brush.html#a5ded381f29fa4566fbce96f623baecab">Brush::Brush</a></div><div class="ttdeci">Brush(char _br=' ')</div><div class="ttdoc">Construtor Brush. </div><div class="ttdef"><b>Definition:</b> brush.cpp:7</div></div>
+<div class="ttc" id="figurageometrica_8h_html"><div class="ttname"><a href="figurageometrica_8h.html">figurageometrica.h</a></div></div>
+<div class="ttc" id="class_brush_html"><div class="ttname"><a href="class_brush.html">Brush</a></div><div class="ttdoc">A classe Brush é responsável por caracterizar o brush que será utilizado para o desenho. </div><div class="ttdef"><b>Definition:</b> brush.h:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

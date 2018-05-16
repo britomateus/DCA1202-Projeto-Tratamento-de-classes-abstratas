@@ -1,0 +1,75 @@
+\hypertarget{class_brush}{}\section{Referência da Classe Brush}
+\label{class_brush}\index{Brush@{Brush}}
+
+
+A classe \mbox{\hyperlink{class_brush}{Brush}} é responsável por caracterizar o brush que será utilizado para o desenho.  
+
+
+
+
+{\ttfamily \#include $<$brush.\+h$>$}
+
+Diagrama de hierarquia para Brush\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_brush}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_brush_a5ded381f29fa4566fbce96f623baecab}{Brush}} (char \+\_\+br=\textquotesingle{} \textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Construtor \mbox{\hyperlink{class_brush}{Brush}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_brush_ad12c371aba8d8770df593ef94ae14dd0}{draw}} (\mbox{\hyperlink{class_screen}{Screen}} \&t)
+\begin{DoxyCompactList}\small\item\em Método para desenhar figuras com o brush escolhido pelo usuário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+A classe \mbox{\hyperlink{class_brush}{Brush}} é responsável por caracterizar o brush que será utilizado para o desenho. 
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_brush_a5ded381f29fa4566fbce96f623baecab}\label{class_brush_a5ded381f29fa4566fbce96f623baecab}} 
+\index{Brush@{Brush}!Brush@{Brush}}
+\index{Brush@{Brush}!Brush@{Brush}}
+\subsubsection{\texorpdfstring{Brush()}{Brush()}}
+{\footnotesize\ttfamily Brush\+::\+Brush (\begin{DoxyParamCaption}\item[{char}]{\+\_\+br = {\ttfamily \textquotesingle{}~\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Construtor \mbox{\hyperlink{class_brush}{Brush}}. 
+
+
+\begin{DoxyCode}
+7                     \{
+8     br = \_br;
+9 \}
+\end{DoxyCode}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_brush_ad12c371aba8d8770df593ef94ae14dd0}\label{class_brush_ad12c371aba8d8770df593ef94ae14dd0}} 
+\index{Brush@{Brush}!draw@{draw}}
+\index{draw@{draw}!Brush@{Brush}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Brush\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_screen}{Screen}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Método para desenhar figuras com o brush escolhido pelo usuário. 
+
+
+
+Implementa \mbox{\hyperlink{class_figura_geometrica_a8ee8dedc060b6059a805ea091aef2c41}{Figura\+Geometrica}}.
+
+
+\begin{DoxyCode}
+11                          \{
+12     t.\mbox{\hyperlink{class_screen_aebc4eb6cb5acf15a0f04c1494622ab23}{setBrush}}(br);
+13 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/\mbox{\hyperlink{brush_8h}{brush.\+h}}\item 
+Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/\mbox{\hyperlink{brush_8cpp}{brush.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,111 @@
+\hypertarget{class_retangulo}{}\section{Referência da Classe Retangulo}
+\label{class_retangulo}\index{Retangulo@{Retangulo}}
+
+
+A classe \mbox{\hyperlink{class_retangulo}{Retangulo}} é utilizada para representar os retângulos que poderão ser desenhados na tela.  
+
+
+
+
+{\ttfamily \#include $<$retangulo.\+h$>$}
+
+Diagrama de hierarquia para Retangulo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_retangulo}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_retangulo_a6c53c1dbd4fa3a699f688e29647397c8}{Retangulo}} (int \+\_\+x=0, int \+\_\+y=0, int \+\_\+l=0, int \+\_\+a=0, bool \+\_\+preenchido=false)
+\begin{DoxyCompactList}\small\item\em Construtor \mbox{\hyperlink{class_retangulo}{Retangulo}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_retangulo_ac088dd6d3f4f3d3f80363a868c2e74f1}{draw}} (\mbox{\hyperlink{class_screen}{Screen}} \&t)
+\begin{DoxyCompactList}\small\item\em Método para desenhar o retângulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+A classe \mbox{\hyperlink{class_retangulo}{Retangulo}} é utilizada para representar os retângulos que poderão ser desenhados na tela. 
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_retangulo_a6c53c1dbd4fa3a699f688e29647397c8}\label{class_retangulo_a6c53c1dbd4fa3a699f688e29647397c8}} 
+\index{Retangulo@{Retangulo}!Retangulo@{Retangulo}}
+\index{Retangulo@{Retangulo}!Retangulo@{Retangulo}}
+\subsubsection{\texorpdfstring{Retangulo()}{Retangulo()}}
+{\footnotesize\ttfamily Retangulo\+::\+Retangulo (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x = {\ttfamily 0},  }\item[{int}]{\+\_\+y = {\ttfamily 0},  }\item[{int}]{\+\_\+l = {\ttfamily 0},  }\item[{int}]{\+\_\+a = {\ttfamily 0},  }\item[{bool}]{\+\_\+preenchido = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Construtor \mbox{\hyperlink{class_retangulo}{Retangulo}}. 
+
+Um retângulo é especificado conforme a posição do canto superior esquerdo, bem como largura e altura em pixels. 
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+x} & é a coordenada x da posição superior esquerda do retângulo \\
+\hline
+{\em \+\_\+y} & é a coordenada y da posição superior esquerda do retângulo \\
+\hline
+{\em \+\_\+l} & é a largura do retângulo \\
+\hline
+{\em \+\_\+a} & é a altura do retãngulo \\
+\hline
+{\em \+\_\+preenchido} & é o parâmetro para determinar se o retângulo será preenchido ou não \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+7                                                                     \{
+8 
+9     x = \_x; \textcolor{comment}{//coordenadas do ponto inicial}
+10     y = \_y;
+11     l = \_l;
+12     a = \_a;
+13     preenchido = \_preenchido;
+14 
+15 \}
+\end{DoxyCode}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_retangulo_ac088dd6d3f4f3d3f80363a868c2e74f1}\label{class_retangulo_ac088dd6d3f4f3d3f80363a868c2e74f1}} 
+\index{Retangulo@{Retangulo}!draw@{draw}}
+\index{draw@{draw}!Retangulo@{Retangulo}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Retangulo\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_screen}{Screen}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Método para desenhar o retângulo. 
+
+Caso o retângulo seja preenchido, o algoritmo varre todas as coordenadas desenhando os pixels, caso contrário, são desenhadas as retas que formam o contorno. 
+
+Implementa \mbox{\hyperlink{class_figura_geometrica_a8ee8dedc060b6059a805ea091aef2c41}{Figura\+Geometrica}}.
+
+
+\begin{DoxyCode}
+17                              \{
+18 
+19     \textcolor{keywordflow}{if}(preenchido)\{
+20         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=x; i<(x+l);i++)\{
+21             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=y;j<(y+a);j++)\{
+22                 t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(i,j);
+23             \}
+24         \}
+25     \} \textcolor{keywordflow}{else} \{
+26         \mbox{\hyperlink{class_reta}{Reta}} contorno1(x,y,(x+l),y);
+27         contorno1.draw(t);
+28         \mbox{\hyperlink{class_reta}{Reta}} contorno2((x+l),y,(x+l),(y+a));
+29         contorno2.draw(t);
+30         \mbox{\hyperlink{class_reta}{Reta}} contorno3(x,(y+a),(x+l),(y+a));
+31         contorno3.draw(t);
+32         \mbox{\hyperlink{class_reta}{Reta}} contorno4(x,y,x,(y+a));
+33         contorno4.draw(t);
+34         t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}((x+l),(y+a));
+35     \}
+36 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/\mbox{\hyperlink{retangulo_8h}{retangulo.\+h}}\item 
+Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/\mbox{\hyperlink{retangulo_8cpp}{retangulo.\+cpp}}\end{DoxyCompactItemize}

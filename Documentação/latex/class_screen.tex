@@ -1,0 +1,162 @@
+\hypertarget{class_screen}{}\section{Referência da Classe Screen}
+\label{class_screen}\index{Screen@{Screen}}
+
+
+A classe \mbox{\hyperlink{class_screen}{Screen}} é utilizada para representar a tela de desenho.  
+
+
+
+
+{\ttfamily \#include $<$screen.\+h$>$}
+
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_screen_a4f0097a240880bbf75242dd0938d7f38}{Screen}} (int nl=10, int nc=10)
+\begin{DoxyCompactList}\small\item\em Construtor \mbox{\hyperlink{class_screen}{Screen}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{set\+Pixel}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Método para desenhar o pixel na tela. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_screen_a35e74266b2a04e37b354ceff7a5f1031}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Método para limpar a tela. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_screen_aebc4eb6cb5acf15a0f04c1494622ab23}{set\+Brush}} (char \+\_\+brush)
+\begin{DoxyCompactList}\small\item\em Método para definir qual o brush será utilizado no desenho dos pixels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{class_screen_aab6a2880746bfe1b7964817cc8f0989e}{operator$<$$<$}} (ostream \&os, \mbox{\hyperlink{class_screen}{Screen}} \&t)
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador $<$$<$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+A classe \mbox{\hyperlink{class_screen}{Screen}} é utilizada para representar a tela de desenho. 
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_screen_a4f0097a240880bbf75242dd0938d7f38}\label{class_screen_a4f0097a240880bbf75242dd0938d7f38}} 
+\index{Screen@{Screen}!Screen@{Screen}}
+\index{Screen@{Screen}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{Screen()}{Screen()}}
+{\footnotesize\ttfamily Screen\+::\+Screen (\begin{DoxyParamCaption}\item[{int}]{nl = {\ttfamily 10},  }\item[{int}]{nc = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+
+
+Construtor \mbox{\hyperlink{class_screen}{Screen}}. 
+
+Tela virtual para desenhar pontos. Essa tela é uma matriz alocada dinamicamente conforme tamanho a ser determinado pelo usuário. 
+\begin{DoxyParams}{Parâmetros}
+{\em nl} & é o número de linhas ou altura da tela \\
+\hline
+{\em nc} & é o número de colunas ou largura da tela \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+9                             \{
+10 
+11     nlin = nl;
+12     ncol = nc;
+13     mat = vector<vector<char>>(nlin, vector<char>(ncol,\textcolor{charliteral}{' '})); \textcolor{comment}{//preenchimento de vetor com espacos}
+14 
+15 \}
+\end{DoxyCode}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_screen_a35e74266b2a04e37b354ceff7a5f1031}\label{class_screen_a35e74266b2a04e37b354ceff7a5f1031}} 
+\index{Screen@{Screen}!clear@{clear}}
+\index{clear@{clear}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Screen\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Método para limpar a tela. 
+
+Substitui os pixels desenhados pelo caractere de espaço 
+\begin{DoxyCode}
+25 \{
+26     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<mat.size();i++)\{
+27         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0;j<mat[i].size();j++)\{
+28             mat[i][j] = \textcolor{charliteral}{' '};
+29         \}
+30     \}
+31 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_screen_aebc4eb6cb5acf15a0f04c1494622ab23}\label{class_screen_aebc4eb6cb5acf15a0f04c1494622ab23}} 
+\index{Screen@{Screen}!set\+Brush@{set\+Brush}}
+\index{set\+Brush@{set\+Brush}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{set\+Brush()}{setBrush()}}
+{\footnotesize\ttfamily void Screen\+::set\+Brush (\begin{DoxyParamCaption}\item[{char}]{\+\_\+brush }\end{DoxyParamCaption})}
+
+
+
+Método para definir qual o brush será utilizado no desenho dos pixels. 
+
+
+\begin{DoxyCode}
+34 \{
+35     brush = \_brush;
+36 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}\label{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}} 
+\index{Screen@{Screen}!set\+Pixel@{set\+Pixel}}
+\index{set\+Pixel@{set\+Pixel}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{set\+Pixel()}{setPixel()}}
+{\footnotesize\ttfamily void Screen\+::set\+Pixel (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Método para desenhar o pixel na tela. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em x} & é a coordenada x da posição do pixel que vai ser desenhado \\
+\hline
+{\em y} & é a coordenada y da posição do pixel que vai ser desenhado \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+18 \{
+19     \textcolor{keywordflow}{if}((x<nlin) & (y<ncol) && (x>=0) & (y>=0))\{
+20         mat[x][y] = brush;
+21     \}
+22 \}
+\end{DoxyCode}
+
+
+\subsection{Amigas e Funções Relacionadas}
+\mbox{\Hypertarget{class_screen_aab6a2880746bfe1b7964817cc8f0989e}\label{class_screen_aab6a2880746bfe1b7964817cc8f0989e}} 
+\index{Screen@{Screen}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{\mbox{\hyperlink{class_screen}{Screen}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Sobrecarga do operador $<$$<$. 
+
+Função amiga da classe \mbox{\hyperlink{class_screen}{Screen}}, permite que a tela de desenho seja exibida no terminal ou em um arquivo de texto. 
+\begin{DoxyParams}{Parâmetros}
+{\em os} & é o fluxo de entrada \\
+\hline
+{\em t} & é o parâmetro que recebe a tela \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+39 \{
+40     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<t.nlin; i++)\{
+41         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<t.ncol; j++)\{
+42             os << t.mat[i][j];
+43         \}
+44         os <<endl;
+45     \}
+46     \textcolor{keywordflow}{return}(os);
+47 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/\mbox{\hyperlink{screen_8h}{screen.\+h}}\item 
+Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/\mbox{\hyperlink{screen_8cpp}{screen.\+cpp}}\end{DoxyCompactItemize}

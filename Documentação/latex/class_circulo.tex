@@ -1,0 +1,154 @@
+\hypertarget{class_circulo}{}\section{Referência da Classe Circulo}
+\label{class_circulo}\index{Circulo@{Circulo}}
+
+
+A classe \mbox{\hyperlink{class_circulo}{Circulo}} é utilizada para representar os círculos que poderão ser desenhados na tela.  
+
+
+
+
+{\ttfamily \#include $<$circulo.\+h$>$}
+
+Diagrama de hierarquia para Circulo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_circulo}
+\end{center}
+\end{figure}
+\subsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_circulo_ad460c0782d1a35324cd71079f80e3388}{Circulo}} (int \+\_\+x, int \+\_\+y, int \+\_\+r, bool \+\_\+preenchido)
+\begin{DoxyCompactList}\small\item\em Construtor \mbox{\hyperlink{class_circulo}{Circulo}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_circulo_a593787d6e0618c2eded23e8839e7bea6}{draw}} (\mbox{\hyperlink{class_screen}{Screen}} \&t)
+\begin{DoxyCompactList}\small\item\em Método para desenhar o circulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_circulo_a197439e429d6636a4a43d77e02b20486}{pontos\+Da\+Circunferencia}} (int x1, int y1, \mbox{\hyperlink{class_screen}{Screen}} \&t)
+\begin{DoxyCompactList}\small\item\em Método para determinar os pontos da circunferência. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+A classe \mbox{\hyperlink{class_circulo}{Circulo}} é utilizada para representar os círculos que poderão ser desenhados na tela. 
+
+\subsection{Construtores e Destrutores}
+\mbox{\Hypertarget{class_circulo_ad460c0782d1a35324cd71079f80e3388}\label{class_circulo_ad460c0782d1a35324cd71079f80e3388}} 
+\index{Circulo@{Circulo}!Circulo@{Circulo}}
+\index{Circulo@{Circulo}!Circulo@{Circulo}}
+\subsubsection{\texorpdfstring{Circulo()}{Circulo()}}
+{\footnotesize\ttfamily Circulo\+::\+Circulo (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x,  }\item[{int}]{\+\_\+y,  }\item[{int}]{\+\_\+r,  }\item[{bool}]{\+\_\+preenchido }\end{DoxyParamCaption})}
+
+
+
+Construtor \mbox{\hyperlink{class_circulo}{Circulo}}. 
+
+Um círculo é especificado conforme a posição do centro, seu raio e se este deverá ser preenchido ou apenas o contorno será desenhado 
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+x} & é a posição x do centro do circulo \\
+\hline
+{\em \+\_\+y} & é a posição y do centro do circulo \\
+\hline
+{\em \+\_\+r} & é o raio do circulo \\
+\hline
+{\em \+\_\+preenchido} & determina se o circulo será preenchido ou não \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+9 \{
+10     raio = \_r;
+11     x = \_x;
+12     y = \_y;
+13     preenchido = \_preenchido;
+14     oct = 1;
+15 \}
+\end{DoxyCode}
+
+
+\subsection{Funções membros}
+\mbox{\Hypertarget{class_circulo_a593787d6e0618c2eded23e8839e7bea6}\label{class_circulo_a593787d6e0618c2eded23e8839e7bea6}} 
+\index{Circulo@{Circulo}!draw@{draw}}
+\index{draw@{draw}!Circulo@{Circulo}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Circulo\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_screen}{Screen}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Método para desenhar o circulo. 
+
+Para o desenho do círculo, é verificado se cada coordenada atende à equação do círculo. O algoritmo de Bresenham é utilizado para o desenho do círculo não preenchido. 
+
+Implementa \mbox{\hyperlink{class_figura_geometrica_a8ee8dedc060b6059a805ea091aef2c41}{Figura\+Geometrica}}.
+
+
+\begin{DoxyCode}
+17                            \{
+18 
+19     \textcolor{keywordflow}{if}(preenchido)\{
+20         \textcolor{comment}{//R²= x² + y²}
+21 
+22         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=(x-raio);i<=(x+raio);i++)\{
+23 
+24             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=(y-raio);j<=(y+raio);j++)\{
+25 
+26                 \textcolor{keywordflow}{if}( (i-x)*(i-x)+(j-y)*(j-y) <= (raio*raio))\{
+27 
+28                     t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(i,j);
+29                 \}
+30             \}
+31         \}
+32     \}
+33 
+34     \textcolor{keywordflow}{else}\{
+35         \textcolor{keywordtype}{int} x1 = 0;
+36         \textcolor{keywordtype}{int} y1 = raio;
+37         \textcolor{keywordtype}{int} d = 1 - raio;
+38         \mbox{\hyperlink{class_circulo_a197439e429d6636a4a43d77e02b20486}{pontosDaCircunferencia}}(x1,y1,t);
+39 
+40         \textcolor{keywordflow}{while}(y1 > x1)\{
+41             \textcolor{keywordflow}{if}(d < 0)\{
+42 
+43                 d = d + 2*x1 + 3;
+44                 x1 = x1 + 1;
+45             \}
+46 
+47             \textcolor{keywordflow}{else}\{
+48 
+49                 d = d + 2*(x1-y1) + 5;
+50                 x1 = x1 + 1;
+51                 y1 = y1 - 1;
+52             \}
+53 
+54             \mbox{\hyperlink{class_circulo_a197439e429d6636a4a43d77e02b20486}{pontosDaCircunferencia}}(x1,y1,t);
+55         \}
+56     \}
+57 
+58 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_circulo_a197439e429d6636a4a43d77e02b20486}\label{class_circulo_a197439e429d6636a4a43d77e02b20486}} 
+\index{Circulo@{Circulo}!pontos\+Da\+Circunferencia@{pontos\+Da\+Circunferencia}}
+\index{pontos\+Da\+Circunferencia@{pontos\+Da\+Circunferencia}!Circulo@{Circulo}}
+\subsubsection{\texorpdfstring{pontos\+Da\+Circunferencia()}{pontosDaCircunferencia()}}
+{\footnotesize\ttfamily void Circulo\+::pontos\+Da\+Circunferencia (\begin{DoxyParamCaption}\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{\mbox{\hyperlink{class_screen}{Screen}} \&}]{t }\end{DoxyParamCaption})}
+
+
+
+Método para determinar os pontos da circunferência. 
+
+Determina os demais pontos da circunferência, a partir dos pontos do primeiro octante. 
+\begin{DoxyCode}
+60                                                              \{
+61     t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(x + x1, y + y1);
+62     t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(x + y1, y + x1);
+63     t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(x - y1, y + x1);
+64     t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(x - x1, y + y1);
+65     t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(x - x1, y - y1);
+66     t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(x - y1, y - x1);
+67     t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(x + y1, y - x1);
+68     t.\mbox{\hyperlink{class_screen_ae6bea81c57a22d226507c3c26fa95ee0}{setPixel}}(x + x1, y - y1);
+69 \}
+\end{DoxyCode}
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/\mbox{\hyperlink{circulo_8h}{circulo.\+h}}\item 
+Projeto2\+\_\+\+Tratamentode\+Classes\+Abstratas/\mbox{\hyperlink{circulo_8cpp}{circulo.\+cpp}}\end{DoxyCompactItemize}
